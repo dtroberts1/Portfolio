@@ -33,7 +33,7 @@
     "apollo-link-context": "^1.0.20",
     "bootstrap": "^4.5.0",
     "font-awesome": "^4.7.0",
-    "github-calendar": "^2.2.1",
+    "github-calendar": "^2.2.9",
     "graphql": "^15.3.0",
     "graphql-tag": "^2.10.0",
     "rxjs": "~6.5.5",

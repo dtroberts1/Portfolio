@@ -13,7 +13,6 @@ export class ProjectsComponent implements OnInit {
 
   ngOnInit(): void {
 
-
     this.apollo.query<any>({
       query: gql`
       {
@@ -44,6 +43,7 @@ export class ProjectsComponent implements OnInit {
       }
     }
       `
+      
     }).subscribe((data) => {
       console.log({"data":data})
       this.projects2 = data.data.user.pinnedItems.edges;
