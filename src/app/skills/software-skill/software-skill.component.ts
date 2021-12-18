@@ -46,7 +46,7 @@ export class SoftwareSkillComponent implements OnInit {
       },
       {
         skillName: "aws",
-        fontAwesomeClassname: "fab fa-dot"
+        fontAwesomeClassname: "fab fa-aws"
       },
       // {
       //   skillName: "Tensorflow",
