@@ -25,12 +25,16 @@ export class SoftwareSkillComponent implements OnInit {
         fontAwesomeClassname: "fab fa-js"
       },
       {
-        skillName: "Angularjs",
+        skillName: "Angular",
         fontAwesomeClassname: "fab fa-angular"
       },
       {
         skillName: "nodejs",
         fontAwesomeClassname: "fab fa-node"
+      },
+      {
+        skillName: "jenkins",
+        fontAwesomeClassname: "fab fa-jenkins"
       },
       {
         skillName: "npm",
@@ -42,7 +46,7 @@ export class SoftwareSkillComponent implements OnInit {
       },
       {
         skillName: "aws",
-        fontAwesomeClassname: "fab fa-aws"
+        fontAwesomeClassname: "fab fa-dot"
       },
       // {
       //   skillName: "Tensorflow",

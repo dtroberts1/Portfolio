@@ -12,36 +12,28 @@ export class ExperienceComponent implements OnInit {
     experience: [
       {
         role: "Full Stack Engineer",
-        company: "Infosys",
-        color: "#3781c2",
-        companylogo: "../../../assets/images/infosys.png",
-        date: "Upcoming",
+        company: "Northrop Grumman",
+        color: "#00219B",
+        companylogo: "../../../assets/images/ng_logo.jpg",
+        date: "September 2020 - Current",
         // desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        desc: "Upcoming Software Enginer Specialist(SES) at Infosys",
-        // descBullets: [
-        //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-        //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-        // ]
+        desc: "Work with an Agile team developing software for the Engineering community at Northrop Grumman",
       },
       {
-        role: "Computer Science & Engineering",
-        company: "GLA University",
-        color: "#3f703f",
-        companylogo: "../../../assets/images/gla.png",
-        date: "Aug 2016 – Jul 2020",
-        desc: "I have completed my 4 year graduation degree in computer science with overall CGPA 8.6",
-        // descBullets: [
-        //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-        //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-        // ]
+        role: "Junior Software Engineer",
+        company: "Informa Software",
+        color: "#325194",
+        companylogo: "../../../assets/images/informa_software.png",
+        date: "Feb 2020 – Aug 2020",
+        desc: "Worked in a DevOps team developing and maintaining software tools and utilities for Informa's business clients",
       },
       {
-        role: "Software Engineer Intern",
-        company: "Innovative Buiness Solutions",
-        color: "#ff9102",
-        companylogo: "../../../assets/images/ibs.png",
-        date: "Jun 2018 – Aug 2018",
-        desc: "The 6- Week summer training focused on full-stack web development and helped learn to work in a team",
+        role: "Systems Integration Intern",
+        company: "Leidos",
+        color: "#471266",
+        companylogo: "../../../assets/images/leidos.jpg",
+        date: "May 2019 – Dec 2019",
+        desc: "Was a member of the System Engineering and Integration Contract team (SEIC) developing automated tests for mission planning software",
         },
       // descBullets: [
       //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit",

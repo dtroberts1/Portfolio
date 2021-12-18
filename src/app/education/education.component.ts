@@ -19,7 +19,7 @@ export class EducationComponent implements OnInit {
       heading: "Bachelor's - Computer Science",
       duration: "2020",
       subtitle: "BCS",
-      content: "Successfully completed my Bachelor of Science in Computer science from University of Central Florida, Florida.",
+      content: "Successfully completed my Bachelor of Science (Computer Science) from University of Central Florida.",
       className1: "mar-right",
       className2: "prt_about_learnbox_left"
     },

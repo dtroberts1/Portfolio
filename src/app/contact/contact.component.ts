@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class ContactComponent implements OnInit {
   public contactInfo = {
     title: "Contact Me ☎️",
-    subtitle: "Discuss a project or just want to say hi? My Inbox is open for all.",
-    number: "+91-9634018431",
-    email_address: "sharthak31@gmail.com"
+    subtitle: "Do you have a project that you would like to discuss? Let's talk.",
+    number: "407.694.5418",
+    email_address: "dylan@robertssoftwaresolutions.com"
   };
   constructor() { }
 

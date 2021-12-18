@@ -8,12 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class SkillsComponent implements OnInit {
   skillsSection = {
     title: "Who am I?💁‍♂️",
-    subTitle: "DETAIL ORIENTED SOFTARE DEVELOPER READY TO CONSULT AND PROVIDE YOU WITH A SOLUTION",
+    subTitle: "DETAIL ORIENTED SOFTARE DEVELOPER READY TO CONSULT AND PROVIDE A SOLUTION",
     skills: [
-      "⚡ Develop highly interactive Front end / User Interfaces for your web applications",
+      "⚡ Developing highly interactive front end / user interfaces (UIs)",
       "⚡ Creating application backend in Node, Express & .NET",
-      "⚡ Progressive Web Applications ( PWA ) in normal and SPA Stacks",
-      "⚡ Integration of third party services such as Azure/ Heroku/ AWS",
+      "⚡ Developing Web Applications in MPA and SPA Stacks",
+      "⚡ Enabling Secure Integration via Application Programming Interfaces (APIs)",
+      "⚡ Integrating third party deployment services such as Azure/ Heroku/ AWS",
+      "⚡ Developing Unit, Integration, and End-to-end Tests",
+      "⚡ Being involved in all phases of Software Development Life Cycle (SDLC)",
+      "⚡ Working with SQL and NoSQL databases like MySQL, Firebase, Microsoft SQL Server",
     ]
   };
   constructor() { }

@@ -1,15 +1,21 @@
 
 <div class="main" id="skills">
   <div class="skills-main-div">
-      <div class="skills-image-div" wmAnimate="fadeInRight" aos speed="normal">
-        <img alt="Sarthak Working" src="../../assets/images/developerActivity.svg" class="skills-image-div">
+      <div class="skills-image-div" wmAnimate="fadeInRight" aos speed="normal"
+        style="display: flex; justify-content: center;"
+      >
+        <img alt="Dylan Working" src="../../assets/images/contemplating.jpg" class="skills-image-div"
+        style="max-width: 100%; height: 640px;">
       </div>
-      <div class="skills-text-div" wmAnimate="fadeInLeft" aos speed="normal">
-        <h1 class="skills-heading">{{skillsSection.title}}</h1>
-        <p class="subTitle skills-text-subtitle">{{skillsSection.subTitle}}
-          <app-software-skill></app-software-skill>
-        <div *ngFor="let skill of skillsSection.skills">
-          <p class="subTitle skills-text">{{skill}}</p>
+      <div class="skills-text-div" wmAnimate="fadeInLeft" aos speed="normal"
+      style="display: flex; align-items: center;">
+        <div>
+          <h1 class="skills-heading">{{skillsSection.title}}</h1>
+          <p class="subTitle skills-text-subtitle">{{skillsSection.subTitle}}
+            <app-software-skill></app-software-skill>
+          <div *ngFor="let skill of skillsSection.skills">
+            <p class="subTitle skills-text">{{skill}}</p>
+          </div>
         </div>
       </div>
 <!--    </Fade>-->
