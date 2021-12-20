@@ -12,6 +12,30 @@
   </div>
 
 <!--  <button class="project-button" >MoreProject</button>-->
+<div class="project-list">
+  <div *ngFor="let project of projects" class="card">
+    <div class="inner">
+      <div class="card-front">
+        <div class="header">
+          <img class="shape" [src]="project.imgPath">
+          <div class="label" [ngStyle]="{'color':project.textColor}">
+            {{project.name}}
+          </div>
+        </div>
+      </div>
+      <div class="card-back">
+        <ul>
+          <li *ngFor="let viewType of project.viewTypes"
+          tabindex="1"
+          (click)="goToUrl(viewType.url)"
+          style="list-style:none;">
+            {{viewType.displayName}}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
   <div class="project-button"><a class="main-button" href="https://github.com/dtroberts1" target="_blank">More Projects</a></div>
 </div>
 
