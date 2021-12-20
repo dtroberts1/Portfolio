@@ -3,6 +3,7 @@ export interface Project {
     technologyList: string[],
     viewTypes: ViewType[],
     textColor: string,
+    backColor: string,
     imgPath: string,
 }
 

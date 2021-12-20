@@ -16,9 +16,12 @@ export class ProjectsComponent implements OnInit {
     {
       name: 'Coffee Truck Mgmt',
       textColor: 'white',
+      backColor: 'rgb(227,218,201, 50%)',
       imgPath: '../../assets/images/coffeecups.jpg',
       technologyList : [
+        'Angular',
         'ExpressJS',
+        'AWS',
       ],
       viewTypes: [
         {
@@ -36,6 +39,7 @@ export class ProjectsComponent implements OnInit {
     {
       name: 'Room Rental Management',
       textColor: 'white',
+      backColor: 'rgb(104, 151, 146)',
       imgPath: '../../assets/images/coffeecups.jpg',
       technologyList: [
         'ASP.NET',
@@ -68,7 +72,32 @@ export class ProjectsComponent implements OnInit {
   goToUrl(url: string){
     this.document.location.href = url;
   }
+  getGradientHelper(project: Project, index: number){
+    console.log("backcolor:"+project.backColor)
+    let arrayColor = Array.from(project.backColor.substring(project.backColor.indexOf('(') + 1, project.backColor.indexOf(')'))
+      .split(',')).map(item => parseInt(item.replace(' ', '')));
+    console.log({"arrayColor":arrayColor})
+    let firstColor = `rgba(${(arrayColor[0] + (index * 10))}, ${(arrayColor[1] + (index * 10)) * (index == 2 ? 1 : 1)}, ${(arrayColor[2] + (index * 10))}, .4)`;
+      let nextColor = `rgba(${(arrayColor[0] + ((index + 1) * 10) - (index == 1 ? 100 : 0))}, ${(arrayColor[1] + ((index + 1) * 10) - (index == 1 ? 100 : 0))}, ${(arrayColor[2] + ((index + 1) * 10) - (index == 1 ? 100 : 0))}, ${(index == 0 ? '.1' : '.9')}`;
+      console.log({"nextColor":nextColor})
+    //let color = 'rgb(133, 101, 97)';
+    return `linear-gradient(${60 * (index + 1)}deg, ${firstColor}, ${nextColor}) ${(index == 0 ? '30%' : '90%')})`;
+  }
 
+  getGradient(project: Project){
+    let gradientsStr = '';
+    for(let i = 0; i < 2; i++){
+      gradientsStr += this.getGradientHelper(project, i) + (i < 1 ? ', ' : '');
+    }
+    console.log("gradient is " + gradientsStr)
+    return gradientsStr;
+
+  }
+/*
+  getGradient(){
+    return linear-gradient(${angle}deg, ${colorOne}, ${colorTwo});`
+  }
+*/
   ngOnInit(): void {
 
     this.apollo.query<any>({

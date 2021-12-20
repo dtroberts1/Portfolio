@@ -22,8 +22,15 @@
             {{project.name}}
           </div>
         </div>
+        <div> 
+          <ul class="tech-list">
+            <li style="list-style: none;" *ngFor="let technology of project.technologyList">
+              {{technology}}
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="card-back">
+      <div class="card-back" [ngStyle]="{'background':getGradient(project)}">
         <ul>
           <li *ngFor="let viewType of project.viewTypes"
           tabindex="1"

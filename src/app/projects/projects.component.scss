@@ -110,6 +110,24 @@
   }
   
   .card-front{
+    .tech-list{
+      padding-inline-end: 40px;
+
+      li{
+        list-style: none;
+        line-height: 2.5em;
+        text-align: center;
+
+        &:not(:nth-last-child(1)){
+          border-bottom: solid 0.5px rgba(211, 211, 211, .4);
+        }
+        /*
+        &:not(:nth-child(1)){
+          border-top: solid 0.5px rgba(211, 211, 211, .5);
+        }
+        */
+      }
+    }
     .header{
       position: relative;
       .label{
@@ -130,7 +148,6 @@
   }
   .card-back{
     transform: rotateY(180deg);
-    background-color: gold;
     align-items: start;
     padding-top: 30px;
     font-size: 17px;
