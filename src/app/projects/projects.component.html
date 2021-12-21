@@ -24,21 +24,28 @@
         </div>
         <div> 
           <ul class="tech-list">
-            <li style="list-style: none;" *ngFor="let technology of project.technologyList">
+            <li [ngStyle]="{'color':getDarkerColor(project), 'font-weight': 'bold'}" style="list-style: none;" *ngFor="let technology of project.technologyList">
               {{technology}}
             </li>
           </ul>
         </div>
       </div>
-      <div class="card-back" [ngStyle]="{'background':getGradient(project)}">
-        <ul>
-          <li *ngFor="let viewType of project.viewTypes"
-          tabindex="1"
-          (click)="goToUrl(viewType.url)"
-          style="list-style:none;">
-            {{viewType.displayName}}
-          </li>
-        </ul>
+      <div class="card-back" [ngStyle]="{'background':getGradient(project), 'color': project.textColor}">
+        <div [ngStyle]="{'color': project.textColor}" style="font-weight: bold;
+        text-align: center; font-family: sans-serif; font-size: 20px;">
+        {{
+          project.description
+        }}
+        </div>
+        <div *ngIf="project.demoAvailable" class="demo-button"
+          [ngStyle]="{'color':getDarkerColor(project)}"
+        > Demo
+        </div>
+        <div *ngIf="!project.demoAvailable" class="demo-button"
+          (click)="goToSourceCode(project)"
+          [ngStyle]="{'color':getDarkerColor(project), 'left': '79.625px'}"
+        > Source Code
+        </div>
       </div>
     </div>
   </div>

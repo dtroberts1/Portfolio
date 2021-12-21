@@ -16,12 +16,15 @@ export class ProjectsComponent implements OnInit {
     {
       name: 'Coffee Truck Mgmt',
       textColor: 'white',
-      backColor: 'rgb(227,218,201, 50%)',
+      description: 'Here is a description',
+      themeColor: 'rgb(227,218,201,50%)',
+      demoAvailable: true,
       imgPath: '../../assets/images/coffeecups.jpg',
       technologyList : [
         'Angular',
         'ExpressJS',
         'AWS',
+        'SQL',
       ],
       viewTypes: [
         {
@@ -38,11 +41,15 @@ export class ProjectsComponent implements OnInit {
     },
     {
       name: 'Room Rental Management',
+      description: 'Here is a description',
       textColor: 'white',
-      backColor: 'rgb(104, 151, 146)',
-      imgPath: '../../assets/images/coffeecups.jpg',
+      demoAvailable: false,
+      themeColor: 'rgb(246,164,104)',
+      imgPath: '../../assets/images/House interior 3.jpg',
       technologyList: [
         'ASP.NET',
+        'Angular',
+        'Entity Framework',
       ],
       viewTypes: [
         {
@@ -69,18 +76,38 @@ export class ProjectsComponent implements OnInit {
 
   }
 
-  goToUrl(url: string){
-    this.document.location.href = url;
-  }
-  getGradientHelper(project: Project, index: number){
-    console.log("backcolor:"+project.backColor)
-    let arrayColor = Array.from(project.backColor.substring(project.backColor.indexOf('(') + 1, project.backColor.indexOf(')'))
+  getDarkerColor(project: Project){
+    let colorArray = Array.from(project.themeColor.substring(project.themeColor.indexOf('(') + 1, project.themeColor.indexOf(')'))
       .split(',')).map(item => parseInt(item.replace(' ', '')));
-    console.log({"arrayColor":arrayColor})
+      let color = `rgba(${(colorArray[0] - 100)}, ${(colorArray[1] - 100)}, ${(colorArray[2] - 100)}, 1)`;
+      console.log({"colorArray":colorArray});
+      console.log("color is " + color)
+    return color;
+  }
+
+  goToUrl(url: string){
+    window.open(
+      url,
+      '_blank'
+    );
+  }
+
+  goToSourceCode(project: Project){
+    let sourceCodeList = project.viewTypes.filter(vT => vT.type === 'sourceCode');
+    if (sourceCodeList && sourceCodeList.length){
+      window.open(
+        sourceCodeList[0].url,
+        '_blank'
+      );
+
+    }
+  }
+
+  getGradientHelper(project: Project, index: number){
+    let arrayColor = Array.from(project.themeColor.substring(project.themeColor.indexOf('(') + 1, project.themeColor.indexOf(')'))
+      .split(',')).map(item => parseInt(item.replace(' ', '')));
     let firstColor = `rgba(${(arrayColor[0] + (index * 10))}, ${(arrayColor[1] + (index * 10)) * (index == 2 ? 1 : 1)}, ${(arrayColor[2] + (index * 10))}, .4)`;
-      let nextColor = `rgba(${(arrayColor[0] + ((index + 1) * 10) - (index == 1 ? 100 : 0))}, ${(arrayColor[1] + ((index + 1) * 10) - (index == 1 ? 100 : 0))}, ${(arrayColor[2] + ((index + 1) * 10) - (index == 1 ? 100 : 0))}, ${(index == 0 ? '.1' : '.9')}`;
-      console.log({"nextColor":nextColor})
-    //let color = 'rgb(133, 101, 97)';
+    let nextColor = `rgba(${(arrayColor[0] + ((index + 1) * 10) - (index == 1 ? 100 : 0))}, ${(arrayColor[1] + ((index + 1) * 10) - (index == 1 ? 100 : 0))}, ${(arrayColor[2] + ((index + 1) * 10) - (index == 1 ? 100 : 0))}, ${(index == 0 ? '.1' : '.9')}`;
     return `linear-gradient(${60 * (index + 1)}deg, ${firstColor}, ${nextColor}) ${(index == 0 ? '30%' : '90%')})`;
   }
 
@@ -89,15 +116,10 @@ export class ProjectsComponent implements OnInit {
     for(let i = 0; i < 2; i++){
       gradientsStr += this.getGradientHelper(project, i) + (i < 1 ? ', ' : '');
     }
-    console.log("gradient is " + gradientsStr)
     return gradientsStr;
 
   }
-/*
-  getGradient(){
-    return linear-gradient(${angle}deg, ${colorOne}, ${colorTwo});`
-  }
-*/
+
   ngOnInit(): void {
 
     this.apollo.query<any>({
