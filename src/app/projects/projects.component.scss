@@ -10,6 +10,53 @@
   width: 80vw;
 
 }
+
+.github-year-selector{
+  width: 230px;
+
+  ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-inline-start: 20px;
+    li{
+      a{
+        position: relative;
+        display: block;
+        overflow: hidden;
+        text-decoration: none;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        cursor: pointer;
+        border-radius: 6px;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+        border-bottom-left-radius: 6px;
+        color: #57606a;
+        /*color: #ffffff;*/
+        /*background-color: #55198b;*/
+        padding-right: 16px !important;
+        padding-left: 16px !important;
+        padding-top: 8px !important;
+        padding-bottom: 8px !important;
+        font-weight: 500;
+        font-size: 20px;
+
+        &:hover{
+          text-decoration-color: initial;
+          text-decoration-style: initial;
+          text-decoration-line: none;
+          background-color: #f6f8fa;
+        }
+      }
+
+      line-height: 1.5;
+      width: 100%;
+    }
+  }
+}
 .project-title {
   font-size: 52px;
   font-weight: 400;

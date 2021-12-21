@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import {Apollo} from "apollo-angular";
 import gql from 'graphql-tag';
 import { Project } from '../interfaces/project';
+import{ProjectYear} from '../interfaces/project-year';
 
 
 @Component({
@@ -12,6 +13,24 @@ import { Project } from '../interfaces/project';
   styleUrls: ['./projects.component.scss']
 })
 export class ProjectsComponent implements OnInit {
+  projectYears: ProjectYear[] = [
+    {
+      year: '2021',
+      'isSelected': false,
+    },
+    {
+      year: '2020',
+      'isSelected': false,
+    },
+    {
+      year: '2019',
+      'isSelected': false,
+    },
+    {
+      year: '2018',
+      'isSelected': false,
+    },
+  ];
   projects : Project[] = [
     {
       name: 'Coffee Truck Mgmt',
@@ -80,8 +99,6 @@ export class ProjectsComponent implements OnInit {
     let colorArray = Array.from(project.themeColor.substring(project.themeColor.indexOf('(') + 1, project.themeColor.indexOf(')'))
       .split(',')).map(item => parseInt(item.replace(' ', '')));
       let color = `rgba(${(colorArray[0] - 100)}, ${(colorArray[1] - 100)}, ${(colorArray[2] - 100)}, 1)`;
-      console.log({"colorArray":colorArray});
-      console.log("color is " + color)
     return color;
   }
 
@@ -120,7 +137,21 @@ export class ProjectsComponent implements OnInit {
 
   }
 
+  selectYear(event : any){
+    console.log({"event":event})
+    console.log("year selected..");
+    if (event && event.target){
+      let selectedYearText = event.target.innerText;
+      this.projectYears.forEach(year => year.isSelected = false);
+      let projYear = this.projectYears.find(year => year.year === selectedYearText);
+      projYear.isSelected = true;
+
+    }
+  }
+
   ngOnInit(): void {
+
+    this.projectYears[0].isSelected = true;
 
     this.apollo.query<any>({
       query: gql`
@@ -154,10 +185,7 @@ export class ProjectsComponent implements OnInit {
       `
       
     }).subscribe((data) => {
-      console.log({"data":data});
-      console.log({"data.data.user.pinnedItems.edges":data.data.user.pinnedItems.edges})
       this.projects2 = data.data.user.pinnedItems.edges;
-      // console.log(this.projects2);
     });
   }
 

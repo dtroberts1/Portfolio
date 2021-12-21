@@ -4,8 +4,21 @@
 
 <div class="main" id="projects" wmAnimate="landing" aos speed="faster">
   <h1 class="project-title">My Work 📂</h1>
-  <div class="github__chart">
-    <app-github-calendar></app-github-calendar>
+  <div class="github__chart" style="display: flex; flex-direction: row;">
+    <div style="flex: 1;">
+      <app-github-calendar></app-github-calendar>
+    </div>
+    <!--
+    <div class="github-year-selector">
+      <ul (click)="selectYear($event)">
+        <li *ngFor="let projectYear of projectYears" >
+          <a [ngStyle]="{'color': (projectYear.isSelected ? '#ffffff' : '#57606a'), 'background-color':(projectYear.isSelected ? '#55198b' : 'initial')}">
+            {{projectYear.year}}
+          </a>
+        </li>
+      </ul>
+    </div>
+    -->
   </div>
   <div class="repo-cards-div-main" >
     <app-github-repo-card *ngFor="let project of projects2; let i = index" [github]="project" [index]="i"></app-github-repo-card>
